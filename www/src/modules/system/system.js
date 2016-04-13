@@ -2,6 +2,21 @@ var _system_reload_page = null;
 var _system_reload_messages = null;
 
 /**
+ * Implements hook_install().
+ */
+function system_install() {
+
+  // Remove any old forms from local storage, then purge the form expiration tracker.
+  for (var form_id in Drupal.cache_expiration.forms) {
+    if (!Drupal.cache_expiration.forms.hasOwnProperty(form_id)) { continue; }
+    drupalgap_form_local_storage_delete(form_id);
+  }
+  Drupal.cache_expiration.forms = {};
+  window.localStorage.setItem('cache_expiration', JSON.stringify(Drupal.cache_expiration));
+
+}
+
+/**
  * Implements hook_block_info().
  * @return {Object}
  */
@@ -100,7 +115,7 @@ function system_block_view(delta) {
         break;
       case 'powered_by':
         return '<p style="text-align: center;">' + t('Powered by') + ': ' +
-          l('Relativity', 'http://jay-epstein.com/relativity/overview', {InAppBrowser: true}) +
+          l('DrupalGap', 'http://www.drupalgap.org', {InAppBrowser: true}) +
         '</p>';
         break;
       case 'help':

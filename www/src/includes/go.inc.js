@@ -361,26 +361,33 @@ function drupalgap_back() {
     else if (active_page_id == '_drupalgap_splash') { return; }
     else { _drupalgap_back(); }
   }
-  catch (error) { console.log('drupalgap_back' + error); }
+  catch (error) { console.log('drupalgap_back - ' + error); }
 }
 
 /**
- * Change the page to the previous page.
+ * An internal function used to change the page to the previous page.
  */
 function _drupalgap_back() {
   try {
     // @WARNING - any changes here (except the history.back() call) need to be
     // reflected into the window "navigate" handler below
     drupalgap.back = true;
-    history.back();
+
+    // Properly handle iOS9 back button clicks, and default back button clicks.
+    if (typeof device !== 'undefined' && device.platform === "iOS" && parseInt(device.version) === 9) {
+      $.mobile.back();
+    }
+    else { history.back(); }
+
+    // Update the path and router path.
+    var from = drupalgap_path_get();
     drupalgap_path_set(drupalgap.back_path.pop());
-    drupalgap_router_path_set(
-      drupalgap_get_menu_link_router_path(
-        drupalgap_path_get()
-      )
-    );
+    var to = drupalgap_path_get();
+    drupalgap_router_path_set(drupalgap_get_menu_link_router_path(to));
+    module_invoke_all('drupalgap_back', from, to);
+
   }
-  catch (error) { console.log('drupalgap_back' + error); }
+  catch (error) { console.log('_drupalgap_back - ' + error); }
 }
 
 /**
@@ -409,15 +416,14 @@ $(window).on('navigate', function(event, data) {
       // back, forward (or undefined, aka moving from splash to front page)
       var direction = data.state.direction;
       if (direction == 'back' && drupalgap.back_path.length > 0) {
-        // @WARNING - any changes here should be reflected into
-        // _drupalgap_back().
+        // @WARNING - any changes here should be reflected into _drupalgap_back().
         drupalgap.back = true;
-        drupalgap_path_set(drupalgap.back_path[drupalgap.back_path.length - 1]);
-        drupalgap_router_path_set(
-          drupalgap_get_menu_link_router_path(
-            drupalgap_path_get()
-          )
-        );
+        // Update the path and router path.
+        var from = drupalgap_path_get();
+        drupalgap_path_set(drupalgap.back_path.pop());
+        var to = drupalgap_path_get();
+        drupalgap_router_path_set(drupalgap_get_menu_link_router_path(to));
+        module_invoke_all('drupalgap_back', from, to);
       }
     }
 
