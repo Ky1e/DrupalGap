@@ -18,7 +18,47 @@ function relativity_front_page() {
   try {
     var content = {};
     content['my_intro_text'] = {
-      markup: 'Welcome to Relativity Mobile!'
+      markup: '<h4 style="text-align: center;">' +
+      Drupal.settings.site_path +
+      '</h4>',
+      markup: '<h2 style="text-align: center;">' +
+      t('Welcome to DrupalGap') +
+      '</h2>' +
+      '<p style="text-align: center;">' +
+      t('The open source application development kit for Drupal!') +
+      '</p>'
+    };
+    content.site_info = {
+      markup: '<h4 style="text-align: center;">' +
+      Drupal.settings.site_path +
+      '</h4>'
+    };
+    content.welcome = {
+      markup: '<h2 style="text-align: center;">' +
+      t('Welcome to DrupalGap') +
+      '</h2>' +
+      '<p style="text-align: center;">' +
+      t('The open source application development kit for Drupal!') +
+      '</p>'
+    };
+    if (drupalgap.settings.logo) {
+      content.logo = {
+        markup: '<center>' +
+        theme('image', {path: drupalgap.settings.logo}) +
+        '</center>'
+      };
+    }
+    content.get_started = {
+      theme: 'button_link',
+      text: t('Getting Started Guide'),
+      path: 'http://www.drupalgap.org/get-started',
+      options: {InAppBrowser: true}
+    };
+    content.support = {
+      theme: 'button_link',
+      text: t('Support'),
+      path: 'http://www.drupalgap.org/support',
+      options: {InAppBrowser: true}
     };
     return content;
   }//throws error if the content is not loaded
