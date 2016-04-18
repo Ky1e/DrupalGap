@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## What is DrupalGap?
 
 > An open source application development kit for Drupal 7. [Try a demo...](http://demo.drupalgap.org) 
@@ -35,3 +36,12 @@
 ## Getting Started
 
 > Try the [Hello World](http://docs.drupalgap.org/7/Hello_World) for DrupalGap.
+=======
+# Relativity Mobile Application
+
+The Relativity Mobile Application uses an open source mobile application development kit built specifically for
+Drupal websites. This project utilizes Drupal, PhoneGap (Cordova), jQueryMobile
+and jDrupal.
+
+Let's get started with a simple [Hello World](/documentation/02_Hello_World/hello_world.md) page.
+>>>>>>> a58f1c9b8b05304f8fc9c085f94e58f0e3665e5d
