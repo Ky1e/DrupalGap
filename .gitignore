@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-cordova*js
-app/.gitignore
-app/README.*
-node_modules
-res
-config.xml
-
-# Ignore a potential jDrupal folder
-jDrupal
-jdrupal.min.js
-jdrupal.js
-
-# Ignore jQM Theme Roller Files
-bin/themes/images
-bin/themes/*.css
-
-tools/*
-
-.drupalgap-backups
-
-=======
 # Ignore paths that contain user-generated content.
 /sites/*/files
 /sites/*/private
@@ -74,6 +52,3 @@ Thumbs.db
 .DS_Store
 
 platforms
-platforms/ios
-
-plugins/ios.json
