@@ -27,7 +27,7 @@ function relativity_front_page() {
       t('Welcome to Relativity Mobile') +
       '</h2>' +
       '<p style="text-align: center;">' +
-      t('The mobile solution for Drupal!') +
+      t('The mobile solution for Relativity!') +
       '</p>'
     };
     if (drupalgap.settings.logo) {
