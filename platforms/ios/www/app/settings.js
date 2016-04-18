@@ -102,7 +102,7 @@ Drupal.settings.cache.views = {
 // DrupalGap Mode (defaults to 'web-app')
 //  'web-app' - use this mode to build a web application for a browser window
 //  'phonegap' - use this mode to build a mobile application with phonegap
-drupalgap.settings.mode = 'phonegap';
+drupalgap.settings.mode = 'web-app';
 
 // Language Files - locale/[language-code].json
 drupalgap.settings.locale = {
@@ -161,7 +161,7 @@ drupalgap.settings.loader = {
 //Drupal.modules.custom['my_module'] = {};
 Drupal.modules.custom['relativity'] = {};
 Drupal.modules.custom['course'] = {};
-Drupal.modules.custom['search'] = {};
+Drupal.modules.custom['campus'] = {};
 
 /***************************************|
  * Menus - http://drupalgap.org/node/85 |
@@ -244,11 +244,11 @@ drupalgap.settings.menus['main_menu'] = {
       }
     },
     {
-      title:'Search',
-      path:'search',
+      title:'Campuses',
+      path:'campus',
       options:{
         attributes:{
-          'data-icon':'info'
+          'data-icon':'grid'
         }
       }
     }

@@ -5,7 +5,7 @@ function relativity_menu() {
     //front_page is used in the settings.js file drupalgap.settings.front = 'front_page'; to display the page as the front page
     items['front_page'] = {
       /* Adds a title at the very top of the page right below the status bar */
-      title: 'PHSC Mobile',
+      title: 'Relativity Mobile',
       page_callback: 'relativity_front_page'
     };
     return items;
@@ -18,7 +18,7 @@ function relativity_front_page() {
   try {
     var content = {};
     content['my_intro_text'] = {
-      markup: 'Welcome to PHSC Mobile!'
+      markup: 'Welcome to Relativity Mobile!'
     };
     return content;
   }//throws error if the content is not loaded

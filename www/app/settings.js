@@ -161,7 +161,7 @@ drupalgap.settings.loader = {
 //Drupal.modules.custom['my_module'] = {};
 Drupal.modules.custom['relativity'] = {};
 Drupal.modules.custom['course'] = {};
-Drupal.modules.custom['my_autocomplete'] = {};
+Drupal.modules.custom['campus'] = {};
 
 /***************************************|
  * Menus - http://drupalgap.org/node/85 |
@@ -244,11 +244,11 @@ drupalgap.settings.menus['main_menu'] = {
       }
     },
     {
-      title:'Search',
-      path:'my_autocomplete',
+      title:'Campuses',
+      path:'campus',
       options:{
         attributes:{
-          'data-icon':'info'
+          'data-icon':'grid'
         }
       }
     }
