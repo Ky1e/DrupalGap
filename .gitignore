@@ -75,4 +75,5 @@ Thumbs.db
 
 platforms
 platforms/ios
->>>>>>> a58f1c9b8b05304f8fc9c085f94e58f0e3665e5d
+
+plugins/ios.json
