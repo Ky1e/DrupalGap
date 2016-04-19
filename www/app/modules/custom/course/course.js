@@ -24,11 +24,12 @@ function course_articles_page() {
         content['course_list'] = {
             theme: 'view',
             format: 'unformatted_list',
-            path: 'json-out/courses', /* the path to the view in Drupal */
+            path: 'json-out/course', /* the path to the view in Drupal */
             row_callback: 'course_articles_list_row',
             empty_callback: 'course_articles_list_empty',
             attributes: {
-                id: 'course_list_view'
+                id: 'course_list_view',
+                'data-filter': 'true',
             }
         };
         return content;
